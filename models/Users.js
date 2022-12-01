@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const {mongoose, model} = require('mongoose');
 const validator = require('validator');
 
 const userSchema = new mongoose.Schema({
@@ -18,23 +18,25 @@ const userSchema = new mongoose.Schema({
     thoughts: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Thought'
+            ref: 'Thoughts'
         },
       ],
     friends: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Friend'
+            ref: 'Users'
         },
       ],
 });
 
 // Create a virtual property `tagCount` that gets the amount of comments per user
-postSchema
+userSchema
   .virtual('friendCount')
   // Getter
   .get(function () {
     return this.friends.length;
   });
 
-module.export = userSchema;
+const Users = model('user', userSchema);
+
+module.exports = Users;
