@@ -27,9 +27,16 @@ const userSchema = new mongoose.Schema({
             ref: 'Users'
         },
       ],
-});
+    },
+    {
+        toJSON: {
+            virtuals: true,
+        },
+        id: false
+    }
+);
 
-// Create a virtual property `tagCount` that gets the amount of comments per user
+// Create a virtual property `friendCount` that gets the amount of comments per user
 userSchema
   .virtual('friendCount')
   // Getter

@@ -1,4 +1,4 @@
-const {mongoose, model} = require('mongoose');
+const {mongoose} = require('mongoose');
 
 const Reaction = new mongoose.Schema(
     {
@@ -19,14 +19,7 @@ const Reaction = new mongoose.Schema(
             type: Date,
             default: Date.now
         }
-    },
-    {
-        toJSON: {
-            getters: true
-        },
-        id: false,
     }
 );
-
 
 module.exports = Reaction;

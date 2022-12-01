@@ -44,11 +44,7 @@ module.exports = {
             .then((thought) => 
                 !thought
                     ? res.status(404).json({message: 'No thought with that ID found!'})
-                    : thought.findOneAndUpdate(
-                        {Thoughts: req.param.thoughtId},
-                        {$pull: {Thoughts: req.params.thoughtId}},
-                        {new:true}
-                    )
+                    : res.json({message: "Thought deleted successfully"})
             )
             .catch((err) => res.status(500).json(err));
     },
