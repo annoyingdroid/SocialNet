@@ -5,3 +5,14 @@ This codebase serves as the API backend for our social network. With it, we are 
 
 ## Installation
 To install, clone this repository locally. Then, from the root of the cloned repository folder, run the `npm install` command to install all necessary dependencies. Finally, you can run the application using `npm start`.
+
+## Usage
+For more information on how to use this code, please consult the video tutorial included in this repository.
+
+## Test cases
+Currently, there are no test cases.
+
+## Tools used
+* VSCode
+* Express.js
+* MongoDB
